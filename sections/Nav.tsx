@@ -1,21 +1,10 @@
-import {
-  Affix,
-  Anchor,
-  Button,
-  Group,
-  Switch,
-  Transition,
-  rem,
-  useMantineTheme,
-} from "@mantine/core";
-import { useWindowScroll } from "@mantine/hooks";
+import { Anchor, Group, Image, Switch, useMantineTheme } from "@mantine/core";
 import {
   IconSun,
   IconMoonStars,
   IconBrandGithub,
   IconMail,
   IconBrandStackoverflow,
-  IconArrowUp,
 } from "@tabler/icons-react";
 import { AppStore } from "../lib/store";
 
@@ -29,6 +18,10 @@ function ThemeSwitcher() {
 
   const handleThemeChange = () => {
     setColorScheme(colorScheme === "dark" ? "light" : "dark");
+    localStorage.setItem(
+      "colorScheme",
+      colorScheme === "dark" ? "light" : "dark"
+    );
   };
 
   return (
@@ -53,57 +46,50 @@ function ThemeSwitcher() {
   );
 }
 
-export default function Navbar() {
-  const [scroll, scrollTo] = useWindowScroll();
-  const theme = useMantineTheme();
+type NavbarProps = {
+  footer?: boolean;
+};
 
+export default function Navbar({ footer }: NavbarProps) {
   return (
     <>
-      <Group spacing={16} position="center" p={16}>
-        <Anchor size={16} color="white" href="/about">
+      <Group spacing={16} position={footer ? "right" : "center"} p={16}>
+        {!footer && (
+          <Anchor href="/">
+            <Image
+              src="/assets/img/logo-white.png"
+              width={64}
+              radius="xl"
+              alt="logo"
+            />
+          </Anchor>
+        )}
+        <Anchor size={16} color={!footer ? "white" : undefined} href="/about">
           About
         </Anchor>
-        <Anchor size={16} color="white" href="/info">
-          Info
-        </Anchor>
         <Anchor
-          color="white"
+          color={!footer ? "white" : undefined}
           href="https://github.com/Aaronkst"
           target="_blank"
         >
           <IconBrandGithub className="inline-icon" />
         </Anchor>
         <Anchor
-          color="white"
+          color={!footer ? "white" : undefined}
           href="https://stackoverflow.com/users/21072674/aaron-dev"
           target="_blank"
         >
           <IconBrandStackoverflow className="inline-icon" />
         </Anchor>
         <Anchor
-          color="white"
+          color={!footer ? "white" : undefined}
           href="mailto:dev.kst.aaron@gmail.com"
           target="_blank"
         >
           <IconMail className="inline-icon" />
         </Anchor>
-        <ThemeSwitcher />
+        {!footer && <ThemeSwitcher />}
       </Group>
-      <Affix position={{ bottom: rem(20), right: rem(20) }}>
-        <Transition transition="slide-up" mounted={scroll.y > 0}>
-          {(transitionStyles) => (
-            <Button
-              radius="xl"
-              style={transitionStyles}
-              onClick={() => scrollTo({ y: 0 })}
-              color={theme.colorScheme === "dark" ? "gray" : "dark"}
-              className="box-shadow"
-            >
-              <IconArrowUp size={16} />
-            </Button>
-          )}
-        </Transition>
-      </Affix>
     </>
   );
 }

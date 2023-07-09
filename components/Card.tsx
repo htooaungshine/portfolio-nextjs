@@ -9,6 +9,7 @@ import {
   Anchor,
   Box,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 type DataCardProps = {
   src: string;
@@ -25,8 +26,15 @@ export default function DataCard({
   href,
   summary,
 }: DataCardProps) {
+  const isMobile = useMediaQuery("(max-width: 48em)");
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
+    <Card
+      shadow="sm"
+      padding="lg"
+      radius="md"
+      withBorder
+      w={isMobile ? "100%" : undefined}
+    >
       <Card.Section>
         <Anchor href={href} target="_blank">
           <AspectRatio ratio={16 / 9}>

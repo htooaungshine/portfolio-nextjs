@@ -1,5 +1,5 @@
 import { BackgroundImage, Center, Text } from "@mantine/core";
-import Navbar from "./Nav";
+import Navbar from "../Nav";
 
 export default function Hero() {
   return (
@@ -14,6 +14,7 @@ export default function Hero() {
             fs="bold"
             size={72}
             className="text-shadow"
+            align="center"
           >
             Aaron Chen
           </Text>

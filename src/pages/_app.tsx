@@ -1,8 +1,9 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { Global, LoadingOverlay, MantineProvider } from "@mantine/core";
+import { Global, MantineProvider } from "@mantine/core";
 import { AppStore } from "../../lib/store";
 import { useEffect } from "react";
+import RootLayout from "../../components/RootLayout";
 
 function CustomFont() {
   return (
@@ -27,7 +28,7 @@ function CustomFont() {
         {
           "@font-face": {
             fontFamily: "SF Pro Display",
-            src: `url('/assets/fonts/SFProDisplay-Regular.ttf')`,
+            src: `url('/assets/fonts/SFProDisplay.ttf')`,
             fontWeight: 400,
             fontStyle: "normal",
           },
@@ -42,11 +43,12 @@ function GlobalStyles() {
     <Global
       styles={(theme) => ({
         body: {
-          ...theme.fn.fontStyles(),
+          fontFamily: "SF Pro Display",
           backgroundColor:
             theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
           color:
             theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+          lineHeight: 1.5,
         },
         ".inline-icon": {
           display: "inline-flex",
@@ -68,24 +70,24 @@ function GlobalStyles() {
 }
 
 export default function App(props: AppProps) {
-  const { loading, setLoading, colorScheme, setColorScheme } = AppStore(
-    (store) => ({
-      loading: store.loading,
-      setLoading: store.setLoading,
-      colorScheme: store.colorScheme,
-      setColorScheme: store.setColorScheme,
-    })
-  );
+  const { colorScheme, setColorScheme } = AppStore((store) => ({
+    colorScheme: store.colorScheme,
+    setColorScheme: store.setColorScheme,
+  }));
   const { Component, pageProps } = props;
 
   useEffect(() => {
-    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-    if (darkThemeMq.matches) {
-      setColorScheme("dark");
+    const savedTheme = localStorage.getItem("colorScheme");
+    if (!savedTheme) {
+      const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (darkThemeMq.matches) {
+        setColorScheme("dark");
+      } else {
+        setColorScheme("light");
+      }
     } else {
-      setColorScheme("light");
+      setColorScheme(savedTheme as typeof colorScheme);
     }
-    setLoading(false);
   }, []);
 
   return (
@@ -96,28 +98,20 @@ export default function App(props: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <link rel="icon" href="/assets/img/logo-white.png" sizes="any" />
       </Head>
 
       <MantineProvider
         withNormalizeCSS
         theme={{
           colorScheme,
-          fontFamily: "SF Pro Display",
         }}
       >
         <CustomFont />
         <GlobalStyles />
-        {loading ? (
-          <LoadingOverlay
-            visible
-            loaderProps={{ size: "xl", variant: "bars" }}
-            overlayBlur={4}
-          >
-            <Component {...pageProps} />
-          </LoadingOverlay>
-        ) : (
+        <RootLayout>
           <Component {...pageProps} />
-        )}
+        </RootLayout>
       </MantineProvider>
     </>
   );

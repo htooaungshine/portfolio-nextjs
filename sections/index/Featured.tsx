@@ -1,18 +1,14 @@
 import { Container, Divider, Group, Text } from "@mantine/core";
-import DataCard from "../components/Card";
+import DataCard from "../../components/Card";
+import SectionTitle from "../../components/SectionTitle";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function Featured() {
+  const isMobile = useMediaQuery("(max-width: 48em)");
   return (
     <Container my={32}>
-      <Divider
-        label={
-          <Text ff="Montserrat Alternates" fs="bold" size={32} weight={700}>
-            My Featured Works
-          </Text>
-        }
-        labelPosition="center"
-      />
-      <Group grow my={16}>
+      <SectionTitle title="my featured works" />
+      <Group grow={!isMobile} position="center" my={16}>
         <DataCard
           src="/assets/img/hero.png"
           alt="Card Image"
