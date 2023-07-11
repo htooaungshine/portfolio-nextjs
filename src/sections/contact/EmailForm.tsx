@@ -17,7 +17,7 @@ export default function EmailForm() {
     <Container my={32}>
       <SectionTitle title="send me a message" />
       <Box p={64} bg={theme.colorScheme === "dark" ? "dark" : "gray.0"}>
-        <form name="contact" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true">
           <TextInput
             icon={<IconUser size="0.8rem" />}
             mb={16}
