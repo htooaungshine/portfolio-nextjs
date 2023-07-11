@@ -1,7 +1,7 @@
 import {
+  IconBrandAdobe,
   IconBrandFigma,
   IconBrandGit,
-  IconBrandMongodb,
   IconBrandNodejs,
   IconBrandReact,
   IconBrandThreejs,
@@ -47,6 +47,11 @@ const skills: SkillCardProps[] = [
     icon: <IconCloud size={64} />,
     name: "DevOps",
     rating: 70,
+  },
+  {
+    icon: <IconBrandAdobe size={64} />,
+    name: "Photoshop",
+    rating: 50,
   },
 ];
 

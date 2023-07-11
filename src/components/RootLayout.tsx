@@ -33,9 +33,8 @@ function Footer() {
   return (
     <Container
       py={32}
-      sx={{
-        backgroundColor: theme.colorScheme === "dark" ? "black" : "lightgrey",
-      }}
+      mt={32}
+      bg={theme.colorScheme === "dark" ? "dark" : "gray.0"}
       fluid
     >
       <Container>

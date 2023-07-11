@@ -67,6 +67,9 @@ export default function Navbar({ footer }: NavbarProps) {
         <Anchor size={16} color={!footer ? "white" : undefined} href="/about">
           About
         </Anchor>
+        <Anchor size={16} color={!footer ? "white" : undefined} href="/contact">
+          Contact
+        </Anchor>
         <Anchor
           color={!footer ? "white" : undefined}
           href="https://github.com/Aaronkst"

@@ -1,9 +1,9 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { Global, MantineProvider } from "@mantine/core";
-import { AppStore } from "../../lib/store";
+import { AppStore } from "../lib/store";
 import { useEffect } from "react";
-import RootLayout from "../../components/RootLayout";
+import RootLayout from "../components/RootLayout";
 
 function CustomFont() {
   return (

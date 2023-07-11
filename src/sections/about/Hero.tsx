@@ -16,7 +16,7 @@ export default function Hero() {
     <BackgroundImage src="/assets/img/Hero.png">
       <Navbar />
       <Container py={128}>
-        <Box maw={!isMobile ? "35vw" : undefined}>
+        <Box>
           <Divider
             color="white"
             label={
@@ -33,7 +33,7 @@ export default function Hero() {
           <Title order={3} color="white" my={16}>
             I am a Fullstack Developer from Yangon, Myanmar.
           </Title>
-          <Text color="white">
+          <Text color="white" align="justify">
             Starting my career at 2019, my prominent development language is{" "}
             <Code>Javascript/Typescript</Code> and most of my professional works
             have been with <Code>Node.js</Code> and <Code>React.js</Code>. With

@@ -10,20 +10,19 @@ export default function Featured() {
       <SectionTitle title="my featured works" />
       <Group grow={!isMobile} position="center" my={16}>
         <DataCard
-          src="/assets/img/hero.png"
+          src="/assets/img/works/dh.png"
           alt="Card Image"
           title="Degitic House"
           href="https://degitichouse.com"
           summary="A start-up software house with my colleagues."
         />
         <DataCard
-          src="/assets/img/hero.png"
+          src="/assets/img/works/kti.png"
           alt="Card Image"
           title="Kratom Thai Industry"
           href="https://kratom-thai-industry.com"
           summary="A micro-site with landing page for Kratom Company."
         />
-        <div />
       </Group>
     </Container>
   );

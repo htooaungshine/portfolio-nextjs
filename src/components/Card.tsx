@@ -37,7 +37,7 @@ export default function DataCard({
     >
       <Card.Section>
         <Anchor href={href} target="_blank">
-          <AspectRatio ratio={16 / 9}>
+          <AspectRatio ratio={16 / 8}>
             <Image src={src} alt={alt} />
           </AspectRatio>
         </Anchor>
