@@ -79,11 +79,10 @@ export default function EmailForm() {
             onChange={handleChange}
           />
           <Group position="right">
-            <LoadingOverlay visible={submitted} overlayBlur={2}>
-              <Button rightIcon={<IconSend size={16} />} type="submit">
-                Send
-              </Button>
-            </LoadingOverlay>
+            <LoadingOverlay visible={submitted} overlayBlur={2} />
+            <Button rightIcon={<IconSend size={16} />} type="submit">
+              Send
+            </Button>
           </Group>
         </form>
       </Box>
