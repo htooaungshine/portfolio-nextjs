@@ -108,7 +108,11 @@ export default function EmailForm() {
           </Group>
         </form>
       </Box>
-      <Modal opened={!!alertMsg} onClose={close} withCloseButton={false}>
+      <Modal
+        opened={!!alertMsg}
+        onClose={() => setAlertMsg(undefined)}
+        withCloseButton={false}
+      >
         {alertMsg}
       </Modal>
     </Container>
