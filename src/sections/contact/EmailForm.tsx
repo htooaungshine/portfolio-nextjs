@@ -65,57 +65,63 @@ export default function EmailForm() {
   };
 
   return (
-    <Container my={32}>
-      <SectionTitle title="send me a message" />
-      <Box p={64} bg={theme.colorScheme === "dark" ? "dark" : "gray.0"}>
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}
-        >
-          <TextInput
-            icon={<IconUser size="0.8rem" />}
-            mb={16}
-            name="name"
-            label="Name"
-            required
-            onChange={handleTextChange}
-          />
-          <TextInput
-            icon={<IconAt size="0.8rem" />}
-            mb={16}
-            name="email"
-            label="Email"
-            required
-            onChange={handleTextChange}
-          />
-          <Textarea
-            icon={<IconMessage size="0.8rem" />}
-            rows={4}
-            mb={16}
-            name="message"
-            label="Message"
-            required
-            onChange={handleTextAreaChange}
-          />
-          <Group position="right">
-            <Box>
-              <LoadingOverlay visible={submitted} overlayBlur={2} />
-              <Button rightIcon={<IconSend size={16} />} type="submit">
-                Send
-              </Button>
-            </Box>
-          </Group>
-        </form>
-      </Box>
+    <>
+      <Container my={32}>
+        <SectionTitle title="send me a message" />
+        <Box p={64} bg={theme.colorScheme === "dark" ? "dark" : "gray.0"}>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
+          >
+            <TextInput
+              icon={<IconUser size="0.8rem" />}
+              mb={16}
+              name="name"
+              label="Name"
+              required
+              onChange={handleTextChange}
+            />
+            <TextInput
+              icon={<IconAt size="0.8rem" />}
+              mb={16}
+              name="email"
+              label="Email"
+              required
+              onChange={handleTextChange}
+            />
+            <Textarea
+              icon={<IconMessage size="0.8rem" />}
+              rows={4}
+              mb={16}
+              name="message"
+              label="Message"
+              required
+              onChange={handleTextAreaChange}
+            />
+            <Group position="right">
+              <Box>
+                <LoadingOverlay visible={submitted} overlayBlur={2} />
+                <Button rightIcon={<IconSend size={16} />} type="submit">
+                  Send
+                </Button>
+              </Box>
+            </Group>
+          </form>
+        </Box>
+      </Container>
+
       <Modal
         opened={!!alertMsg}
         onClose={() => setAlertMsg(undefined)}
         withCloseButton={false}
+        p={0}
       >
-        <Notification title="Done!">{alertMsg}</Notification>
+        <Notification title="Done!" withCloseButton={false}>
+          {alertMsg}
+        </Notification>
       </Modal>
-    </Container>
+    </>
   );
 }
