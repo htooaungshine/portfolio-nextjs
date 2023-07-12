@@ -8,6 +8,7 @@ import {
   Modal,
   TextInput,
   Textarea,
+  Notification,
   useMantineTheme,
 } from "@mantine/core";
 import { IconAt, IconMessage, IconSend, IconUser } from "@tabler/icons-react";
@@ -113,7 +114,7 @@ export default function EmailForm() {
         onClose={() => setAlertMsg(undefined)}
         withCloseButton={false}
       >
-        {alertMsg}
+        <Notification title="Done!">{alertMsg}</Notification>
       </Modal>
     </Container>
   );
