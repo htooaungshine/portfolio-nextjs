@@ -43,7 +43,7 @@ export default function EmailForm() {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "quote", ...quoteReq }),
+      body: encode({ "form-name": "contact", ...quoteReq }),
     })
       .then(() => {
         setAlertMsg("Received your message! Well get back to you soon!");
