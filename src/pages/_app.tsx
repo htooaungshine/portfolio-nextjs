@@ -94,8 +94,9 @@ export default function App(props: AppProps) {
   }, []);
 
   useEffect(() => {
-    const doneLoading = () => {
+    const doneLoading = async () => {
       if (document.readyState === "complete") {
+        await fetch("/assets/img/Hero.png");
         setLoading(false);
       } else {
         document.addEventListener("readystatechange", doneLoading);
