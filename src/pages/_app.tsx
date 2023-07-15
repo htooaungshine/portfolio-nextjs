@@ -179,7 +179,7 @@ export default function App(props: AppProps) {
           onScroll={handleScroll}
           ref={boxRef}
         >
-          <PageLoader loading={true} />
+          <PageLoader loading={loading} />
           {/* <LoadingOverlay
             visible={loading}
             overlayBlur={100}
