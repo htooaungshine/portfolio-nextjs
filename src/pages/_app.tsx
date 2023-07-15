@@ -1,8 +1,8 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { Global, MantineProvider } from "@mantine/core";
+import { Global, LoadingOverlay, MantineProvider } from "@mantine/core";
 import { AppStore } from "../lib/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import RootLayout from "../components/RootLayout";
 
 function CustomFont() {
@@ -76,6 +76,8 @@ export default function App(props: AppProps) {
   }));
   const { Component, pageProps } = props;
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("colorScheme");
     if (!savedTheme) {
@@ -88,6 +90,20 @@ export default function App(props: AppProps) {
     } else {
       setColorScheme(savedTheme as typeof colorScheme);
     }
+  }, []);
+
+  useEffect(() => {
+    const doneLoading = () => {
+      if (document.readyState === "complete") {
+        setLoading(false);
+      } else {
+        document.addEventListener("readystatechange", doneLoading);
+      }
+    };
+
+    doneLoading();
+
+    return () => document.removeEventListener("readystatechange", doneLoading);
   }, []);
 
   return (
@@ -109,9 +125,16 @@ export default function App(props: AppProps) {
       >
         <CustomFont />
         <GlobalStyles />
-        <RootLayout>
-          <Component {...pageProps} />
-        </RootLayout>
+        {loading ? (
+          <LoadingOverlay
+            visible={loading}
+            loaderProps={{ size: "xl", variant: "bars" }}
+          />
+        ) : (
+          <RootLayout>
+            <Component {...pageProps} />
+          </RootLayout>
+        )}
       </MantineProvider>
     </>
   );
