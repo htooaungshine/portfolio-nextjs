@@ -94,18 +94,20 @@ export default function App(props: AppProps) {
   }, []);
 
   useEffect(() => {
-    const doneLoading = async () => {
+    const doneLoading = () => {
       if (document.readyState === "complete") {
-        await fetch("/assets/img/Hero.png");
-        setLoading(false);
+        fetch("/assets/img/Hero.png").then(() => setLoading(false));
       } else {
         document.addEventListener("readystatechange", doneLoading);
       }
     };
 
-    doneLoading();
+    const init = setTimeout(doneLoading, 1000);
 
-    return () => document.removeEventListener("readystatechange", doneLoading);
+    return () => {
+      document.removeEventListener("readystatechange", doneLoading);
+      clearTimeout(init);
+    };
   }, []);
 
   return (

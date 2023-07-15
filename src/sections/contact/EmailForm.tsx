@@ -5,13 +5,20 @@ import {
   Container,
   Group,
   LoadingOverlay,
-  Modal,
   TextInput,
   Textarea,
-  Notification,
   useMantineTheme,
+  Dialog,
+  Text,
+  ThemeIcon,
 } from "@mantine/core";
-import { IconAt, IconMessage, IconSend, IconUser } from "@tabler/icons-react";
+import {
+  IconAt,
+  IconCheck,
+  IconMessage,
+  IconSend,
+  IconUser,
+} from "@tabler/icons-react";
 import { FormEvent, useState } from "react";
 
 type QuoteReq = {
@@ -22,7 +29,7 @@ type QuoteReq = {
 
 export default function EmailForm() {
   const theme = useMantineTheme();
-  const [alertMsg, setAlertMsg] = useState<string>();
+  const [alertMsg, setAlertMsg] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
   const [quoteReq, setQuoteReq] = useState<QuoteReq>({
     name: "",
@@ -111,17 +118,21 @@ export default function EmailForm() {
           </form>
         </Box>
       </Container>
-
-      <Modal
-        opened={!!alertMsg}
-        onClose={() => setAlertMsg(undefined)}
-        withCloseButton={false}
-        p={0}
-      >
-        <Notification title="Done!" withCloseButton={false}>
-          {alertMsg}
-        </Notification>
-      </Modal>
+      {!!alertMsg && (
+        <Dialog
+          opened={!!alertMsg}
+          withCloseButton
+          onClose={() => setAlertMsg("")}
+          position={{ top: 20, left: 20 }}
+        >
+          <Text>
+            <ThemeIcon radius="xl" size="sm" mr={4}>
+              <IconCheck size={"1rem"} />
+            </ThemeIcon>
+            {alertMsg}
+          </Text>
+        </Dialog>
+      )}
     </>
   );
 }
