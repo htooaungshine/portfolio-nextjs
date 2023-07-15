@@ -1,4 +1,5 @@
 import { useMantineTheme } from "@mantine/core";
+import { useEffect } from "react";
 
 type PageLoaderProps = {
   loading: boolean;
@@ -6,6 +7,9 @@ type PageLoaderProps = {
 
 export default function PageLoader({ loading }: PageLoaderProps) {
   const theme = useMantineTheme();
+
+  useEffect(() => {}, []);
+
   return (
     <div
       style={{
@@ -39,6 +43,7 @@ export default function PageLoader({ loading }: PageLoaderProps) {
                 from="0 18 18"
                 to="360 18 18"
                 dur="1s"
+                begin="indefinite"
                 repeatCount="indefinite"
               />
             </path>
