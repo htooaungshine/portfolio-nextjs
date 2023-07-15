@@ -4,6 +4,7 @@ import { Global, LoadingOverlay, MantineProvider } from "@mantine/core";
 import { AppStore } from "../lib/store";
 import { useEffect, useState } from "react";
 import RootLayout from "../components/RootLayout";
+import PageLoader from "@/components/PageLoader";
 
 function CustomFont() {
   return (
@@ -126,10 +127,7 @@ export default function App(props: AppProps) {
         <CustomFont />
         <GlobalStyles />
         {loading ? (
-          <LoadingOverlay
-            visible={loading}
-            loaderProps={{ size: "xl", variant: "bars" }}
-          />
+          <PageLoader />
         ) : (
           <RootLayout>
             <Component {...pageProps} />
