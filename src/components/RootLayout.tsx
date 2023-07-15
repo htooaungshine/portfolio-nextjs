@@ -1,5 +1,6 @@
 import {
   Affix,
+  Box,
   Button,
   Container,
   Group,
@@ -12,15 +13,19 @@ import { IconArrowUp, IconCopyright } from "@tabler/icons-react";
 import { ReactNode } from "react";
 import Navbar from "../sections/Nav";
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
+import { AppStore } from "@/lib/store";
 
 type LayoutProps = {
   children: ReactNode;
 };
 
 export default function RootLayout({ children }: LayoutProps) {
+  const theme = useMantineTheme();
   return (
     <>
-      {children}
+      <Box bg={theme.colorScheme === "dark" ? "dark.7" : "white"} pb={32}>
+        {children}
+      </Box>
       <Footer />
     </>
   );
@@ -28,14 +33,24 @@ export default function RootLayout({ children }: LayoutProps) {
 
 function Footer() {
   const theme = useMantineTheme();
-  const [scroll, scrollTo] = useWindowScroll();
+  const { showAffix, setScrollToTop } = AppStore((store) => ({
+    showAffix: store.showAffix,
+    setScrollToTop: store.setScrollToTop,
+  }));
   const isMobile = useMediaQuery("(max-width: 48em)");
   return (
-    <Container
+    <Box
       py={32}
-      mt={32}
       bg={theme.colorScheme === "dark" ? "dark" : "gray.0"}
-      fluid
+      sx={{
+        display: "block",
+        position: "sticky",
+        top: "auto",
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: -1,
+      }}
     >
       <Container>
         <Group grow={!isMobile}>
@@ -46,12 +61,12 @@ function Footer() {
         </Group>
       </Container>
       <Affix position={{ bottom: rem(20), right: rem(20) }}>
-        <Transition transition="slide-up" mounted={scroll.y > 0}>
+        <Transition transition="slide-up" mounted={showAffix}>
           {(transitionStyles) => (
             <Button
               radius="xl"
               style={transitionStyles}
-              onClick={() => scrollTo({ y: 0 })}
+              onClick={() => setScrollToTop(true)}
               color={theme.colorScheme === "dark" ? "gray" : "dark"}
               className="box-shadow"
             >
@@ -60,6 +75,6 @@ function Footer() {
           )}
         </Transition>
       </Affix>
-    </Container>
+    </Box>
   );
 }

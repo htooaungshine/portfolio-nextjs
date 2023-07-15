@@ -1,10 +1,9 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { Global, LoadingOverlay, MantineProvider } from "@mantine/core";
+import { Box, Global, LoadingOverlay, MantineProvider } from "@mantine/core";
 import { AppStore } from "../lib/store";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import RootLayout from "../components/RootLayout";
-import PageLoader from "@/components/PageLoader";
 
 function CustomFont() {
   return (
@@ -71,10 +70,21 @@ function GlobalStyles() {
 }
 
 export default function App(props: AppProps) {
-  const { colorScheme, setColorScheme } = AppStore((store) => ({
+  const {
+    colorScheme,
+    setColorScheme,
+    setShowAffix,
+    scrollToTop,
+    setScrollToTop,
+  } = AppStore((store) => ({
     colorScheme: store.colorScheme,
     setColorScheme: store.setColorScheme,
+    setShowAffix: store.setShowAffix,
+    scrollToTop: store.scrollToTop,
+    setScrollToTop: store.setScrollToTop,
   }));
+
+  const boxRef = useRef<HTMLDivElement>(null);
   const { Component, pageProps } = props;
 
   const [loading, setLoading] = useState(true);
@@ -96,19 +106,28 @@ export default function App(props: AppProps) {
   useEffect(() => {
     const doneLoading = () => {
       if (document.readyState === "complete") {
-        fetch("/assets/img/Hero.png").then(() => setLoading(false));
+        setLoading(false);
       } else {
-        document.addEventListener("readystatechange", doneLoading);
+        window.addEventListener("load", doneLoading);
       }
     };
 
-    const init = setTimeout(doneLoading, 1000);
+    doneLoading();
 
-    return () => {
-      document.removeEventListener("readystatechange", doneLoading);
-      clearTimeout(init);
-    };
+    return () => window.removeEventListener("load", doneLoading);
   }, []);
+
+  const handleScroll = () => {
+    if (!boxRef.current) return;
+    if (boxRef.current.scrollTop > 20) setShowAffix(true);
+    if (boxRef.current.scrollTop < 21) setShowAffix(false);
+  };
+
+  useEffect(() => {
+    if (!boxRef.current) return;
+    if (scrollToTop) boxRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    setScrollToTop(false);
+  }, [scrollToTop]);
 
   return (
     <>
@@ -129,13 +148,21 @@ export default function App(props: AppProps) {
       >
         <CustomFont />
         <GlobalStyles />
-        {loading ? (
-          <PageLoader />
-        ) : (
+        <Box
+          h="100vh"
+          sx={{ overflowY: loading ? "hidden" : "auto" }}
+          onScroll={handleScroll}
+          ref={boxRef}
+        >
+          <LoadingOverlay
+            visible={loading}
+            overlayBlur={100}
+            loaderProps={{ size: "xl", variant: "bars" }}
+          />
           <RootLayout>
             <Component {...pageProps} />
           </RootLayout>
-        )}
+        </Box>
       </MantineProvider>
     </>
   );
