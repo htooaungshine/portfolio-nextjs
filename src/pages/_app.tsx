@@ -4,7 +4,7 @@ import { Box, Global, LoadingOverlay, MantineProvider } from "@mantine/core";
 import { AppStore } from "../lib/store";
 import { useEffect, useRef, useState } from "react";
 import RootLayout from "../components/RootLayout";
-import PageLoader from "@/components/PageLoader";
+// import PageLoader from "@/components/PageLoader";
 
 function CustomFont() {
   return (
@@ -105,15 +105,13 @@ export default function App(props: AppProps) {
   }, []);
 
   useEffect(() => {
-    const doneLoading = () => {
-      if (document.readyState === "complete") {
-        setLoading(false);
-      } else {
-        window.addEventListener("load", doneLoading);
-      }
-    };
+    const doneLoading = () => setLoading(false);
 
-    doneLoading();
+    if (document.readyState === "complete") {
+      setLoading(false);
+    } else {
+      window.addEventListener("load", doneLoading);
+    }
 
     return () => window.removeEventListener("load", doneLoading);
   }, []);
@@ -155,7 +153,12 @@ export default function App(props: AppProps) {
           onScroll={handleScroll}
           ref={boxRef}
         >
-          <PageLoader loading={loading} />
+          {/* <PageLoader loading={loading} /> */}
+          <LoadingOverlay
+            visible={loading}
+            overlayBlur={100}
+            loaderProps={{ size: "xl" }}
+          />
           <RootLayout>
             <Component {...pageProps} />
           </RootLayout>
