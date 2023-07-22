@@ -7,20 +7,21 @@ type PageLoaderProps = {
 
 export default function PageLoader({ loading }: PageLoaderProps) {
   const theme = useMantineTheme();
-  const pathRef = useRef<SVGPathElement>(null);
+  const spinnerRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    if (pathRef.current) {
-      pathRef.current.animate(
-        [{ transform: "rotate(0 18 18)" }, { transform: "rotate(360 18 18)" }],
+    if (spinnerRef.current && loading) {
+      const animation = spinnerRef.current.animate(
+        [{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }],
         {
           duration: 1000,
           iterations: Infinity,
           easing: "linear",
         }
       );
+      animation.play();
     }
-  }, []);
+  }, [loading]);
 
   return (
     <div
@@ -39,26 +40,17 @@ export default function PageLoader({ loading }: PageLoaderProps) {
       }}
     >
       <svg
-        width="54"
-        height="54"
+        width="50"
+        height="50"
         viewBox="0 0 38 38"
         xmlns="http://www.w3.org/2000/svg"
-        stroke={"#228be6"}
+        stroke="#228be6"
+        ref={spinnerRef}
       >
         <g fill="none" fillRule="evenodd">
           <g transform="translate(1 1)" strokeWidth="2">
             <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
-            <path d="M36 18c0-9.94-8.06-18-18-18" ref={pathRef}>
-              <animateTransform
-                attributeName="transform"
-                type="rotate"
-                from="0 18 18"
-                to="360 18 18"
-                dur="1s"
-                begin="0.5s"
-                repeatCount="indefinite"
-              />
-            </path>
+            <path d="M36 18c0-9.94-8.06-18-18-18" />
           </g>
         </g>
       </svg>
