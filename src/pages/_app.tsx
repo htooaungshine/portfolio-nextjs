@@ -63,7 +63,10 @@ function GlobalStyles() {
           textShadow: "0px 4px 8px #000",
         },
         ".box-shadow": {
-          boxShadow: "0px 4px 4px #000",
+          boxShadow:
+            theme.colorScheme === "dark"
+              ? "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)"
+              : "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)",
         },
       })}
     />
