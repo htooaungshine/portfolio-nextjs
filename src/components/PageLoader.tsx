@@ -1,5 +1,5 @@
 import { useMantineTheme } from "@mantine/core";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type PageLoaderProps = {
   loading: boolean;
@@ -7,8 +7,20 @@ type PageLoaderProps = {
 
 export default function PageLoader({ loading }: PageLoaderProps) {
   const theme = useMantineTheme();
+  const pathRef = useRef<SVGPathElement>(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (pathRef.current) {
+      pathRef.current.animate(
+        [{ transform: "rotate(0 18 18)" }, { transform: "rotate(360 18 18)" }],
+        {
+          duration: 1000,
+          iterations: Infinity,
+          easing: "linear",
+        }
+      );
+    }
+  }, []);
 
   return (
     <div
@@ -36,7 +48,7 @@ export default function PageLoader({ loading }: PageLoaderProps) {
         <g fill="none" fillRule="evenodd">
           <g transform="translate(1 1)" strokeWidth="2">
             <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
-            <path d="M36 18c0-9.94-8.06-18-18-18">
+            <path d="M36 18c0-9.94-8.06-18-18-18" ref={pathRef}>
               <animateTransform
                 attributeName="transform"
                 type="rotate"

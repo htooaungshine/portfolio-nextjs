@@ -1,6 +1,6 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { Box, Global, LoadingOverlay, MantineProvider } from "@mantine/core";
+import { Flex, Global, MantineProvider } from "@mantine/core";
 import { AppStore } from "../lib/store";
 import { useEffect, useRef, useState } from "react";
 import RootLayout from "../components/RootLayout";
@@ -128,32 +128,6 @@ export default function App(props: AppProps) {
     setScrollToTop(false);
   }, [scrollToTop]);
 
-  // const customLoader = (
-  //   <svg
-  //     width="54"
-  //     height="54"
-  //     viewBox="0 0 38 38"
-  //     xmlns="http://www.w3.org/2000/svg"
-  //     stroke={"#228be6"}
-  //   >
-  //     <g fill="none" fillRule="evenodd">
-  //       <g transform="translate(1 1)" strokeWidth="2">
-  //         <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
-  //         <path d="M36 18c0-9.94-8.06-18-18-18">
-  //           <animateTransform
-  //             attributeName="transform"
-  //             type="rotate"
-  //             from="0 18 18"
-  //             to="360 18 18"
-  //             dur="1s"
-  //             repeatCount="indefinite"
-  //           />
-  //         </path>
-  //       </g>
-  //     </g>
-  //   </svg>
-  // );
-
   return (
     <>
       <Head>
@@ -173,23 +147,24 @@ export default function App(props: AppProps) {
       >
         <CustomFont />
         <GlobalStyles />
-        <Box
+        <Flex
           h="100vh"
-          sx={{ overflowY: loading ? "hidden" : "auto" }}
+          sx={{
+            overflowY: loading ? "hidden" : "auto",
+            position: "relative",
+            backfaceVisibility: "hidden",
+            zIndex: 1,
+          }}
           onScroll={handleScroll}
           ref={boxRef}
+          direction="column"
+          wrap="nowrap"
         >
           <PageLoader loading={loading} />
-          {/* <LoadingOverlay
-            visible={loading}
-            overlayBlur={100}
-            loaderProps={{ size: "xl" }}
-            loader={customLoader}
-          /> */}
           <RootLayout>
             <Component {...pageProps} />
           </RootLayout>
-        </Box>
+        </Flex>
       </MantineProvider>
     </>
   );
