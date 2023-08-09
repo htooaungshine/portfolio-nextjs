@@ -10,6 +10,8 @@ export default function PageLoader({ loading }: PageLoaderProps) {
   const spinnerRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    // nothing to do...
+
     if (spinnerRef.current && loading) {
       const animation = spinnerRef.current.animate(
         [{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }],
