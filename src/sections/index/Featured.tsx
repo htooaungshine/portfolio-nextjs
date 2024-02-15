@@ -13,14 +13,14 @@ export default function Featured() {
           src="/assets/img/works/dh.png"
           alt="Card Image"
           title="Degitic House"
-          href="https://degitichouse.com"
+          href="https://degitic-house.netlify.app"
           summary="A start-up software house with my colleagues."
         />
         <DataCard
           src="/assets/img/works/kti.png"
           alt="Card Image"
           title="Kratom Thai Industry"
-          href="https://kratom-thai-industry.com"
+          href="https://kratom-thai.netlify.app"
           summary="A micro-site with landing page for Kratom Company."
         />
       </Group>
