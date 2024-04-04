@@ -23,10 +23,10 @@ const gears: Gear[] = [
     icon: <IconCode size={64} />,
     text: "VS Code",
   },
-  {
-    icon: <IconKeyboard size={64} />,
-    text: "Steelseries Apex Pro",
-  },
+  // {
+  //   icon: <IconKeyboard size={64} />,
+  //   text: "Steelseries Apex Pro",
+  // },
 ];
 
 export default function MyGear() {
