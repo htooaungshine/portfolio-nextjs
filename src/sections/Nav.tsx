@@ -91,7 +91,7 @@ export default function Navbar({ footer }: NavbarProps) {
         >
           <IconMail className="inline-icon" />
         </Anchor>
-        {!footer && <ThemeSwitcher />}
+        {/* {!footer && <ThemeSwitcher />} */}
       </Group>
     </>
   );

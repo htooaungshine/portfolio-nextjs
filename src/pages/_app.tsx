@@ -145,7 +145,7 @@ export default function App(props: AppProps) {
       <MantineProvider
         withNormalizeCSS
         theme={{
-          colorScheme,
+          colorScheme: "dark",
         }}
       >
         <CustomFont />
