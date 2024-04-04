@@ -5,7 +5,6 @@ import {
   IconChefHat,
   IconLanguage,
   IconLineHeight,
-  IconShirt,
 } from "@tabler/icons-react";
 
 type Fact = {
@@ -29,10 +28,6 @@ const facts: Fact[] = [
   {
     icon: <IconLanguage size="1rem" />,
     text: "I speak Fluent English and Burmese, Conversational Chinese and some Japanese",
-  },
-  {
-    icon: <IconShirt size="1rem" />,
-    text: "I love hoodies.. (who doesn't?). Sike! I prefer dressing smart",
   },
 ];
 

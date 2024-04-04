@@ -7,7 +7,7 @@ export default function Page() {
     <>
       <Hero />
       <Skills />
-      <Featured />
+      {/* <Featured /> */}
     </>
   );
 }
