@@ -31,15 +31,15 @@ export default function Hero() {
             }
           />
           <Title order={3} color="white" my={16}>
-            I am a Fullstack Developer from Yangon, Myanmar.
+            I am a DevOps Engineer.
           </Title>
           <Text color="white" align="justify">
-            Starting my career at 2019, my prominent development language is{" "}
-            <Code>Javascript/Typescript</Code> and most of my professional works
-            have been with <Code>Node.js</Code> and <Code>React.js</Code>. With
-            that said, I have taken part in lightweight projects with other
-            languages as well. When I'm not writing any codes or researching new
-            techs, you can find me gaming or watching movies.
+            Results-oriented DevOps and Cloud Engineer having 4 years of experience in FinTech and
+Banking industries with a hands-on experience in dealing with automation technologies like
+CI/CD, containerization, configuration and infrastructure management. Specialized in
+managing and architecting large-scale system architecture and cloud infrastructure. Passionate about digital transformation and assisting many business owners with their
+reliable, secure and cost-effective cloud infrastructure. I frequently contribute to open-
+source projects and serve as a mentor and coach for newcomers in the field.
           </Text>
         </Box>
       </Container>

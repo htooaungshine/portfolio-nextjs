@@ -1,10 +1,10 @@
 import {
-  IconBrandAdobe,
-  IconBrandFigma,
+  IconBrandAws,
+  IconLambda,
   IconBrandGit,
   IconBrandNodejs,
   IconBrandReact,
-  IconBrandThreejs,
+  IconBrandDocker,
   IconCloud,
   IconDatabase,
 } from "@tabler/icons-react";
@@ -24,8 +24,8 @@ const skills: SkillCardProps[] = [
     rating: 90,
   },
   {
-    icon: <IconBrandThreejs size={64} />,
-    name: "React Three Fiber",
+    icon: <IconBrandDocker size={64} />,
+    name: "Docker and Kubernetes",
     rating: 90,
   },
   {
@@ -34,8 +34,8 @@ const skills: SkillCardProps[] = [
     rating: 90,
   },
   {
-    icon: <IconBrandFigma size={64} />,
-    name: "UI / UX",
+    icon: <IconLambda size={64} />,
+    name: "Lambda",
     rating: 60,
   },
   {
@@ -49,9 +49,9 @@ const skills: SkillCardProps[] = [
     rating: 70,
   },
   {
-    icon: <IconBrandAdobe size={64} />,
-    name: "Photoshop",
-    rating: 50,
+    icon: <IconBrandAws size={64} />,
+    name: "AWS",
+    rating: 100,
   },
 ];
 

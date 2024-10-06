@@ -42,38 +42,38 @@ export default function Hero() {
             Reach out to me at my socials below
           </Text>
           <Group py={16}>
-            <Anchor
+            {/* <Anchor
               target="_blank"
               href="https://www.facebook.com/profile.php?id=100015288370073"
             >
               <ThemeIcon size={64} radius="xl">
                 <IconBrandFacebook />
               </ThemeIcon>
-            </Anchor>
+            </Anchor> */}
 
             <Anchor
               target="_blank"
-              href="https://www.linkedin.com/in/aaron-kst"
+              href="https://www.linkedin.com/in/htooaungshine/"
             >
               <ThemeIcon size={64} radius="xl">
                 <IconBrandLinkedin />
               </ThemeIcon>
             </Anchor>
 
-            <Anchor target="_blank" href="https://github.com/Aaronkst">
+            <Anchor target="_blank" href="https://github.com/htooaungshine">
               <ThemeIcon size={64} radius="xl">
                 <IconBrandGithub />
               </ThemeIcon>
             </Anchor>
 
-            <Anchor
+            {/* <Anchor
               target="_blank"
               href="https://stackoverflow.com/users/21072674/aaron-dev"
             >
               <ThemeIcon size={64} radius="xl">
                 <IconBrandStackoverflow />
               </ThemeIcon>
-            </Anchor>
+            </Anchor> */}
           </Group>
         </Box>
       </Container>

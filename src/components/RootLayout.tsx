@@ -55,7 +55,7 @@ function Footer() {
       <Container>
         <Group grow={!isMobile}>
           <Text color="dimmed">
-            <IconCopyright className="inline-icon" /> Aaron Chen
+            <IconCopyright className="inline-icon" /> Htoo Aung Shine
           </Text>
           <Navbar footer />
         </Group>

@@ -16,11 +16,11 @@ export default function Hero() {
             className="text-shadow"
             align="center"
           >
-            Aaron Chen
+            Htoo Aung Shine
           </Text>
           <Center>
             <Text color="white" ff="Montserrat Alternates" size={32}>
-              Fullstack Developer
+              Devops Engineer
             </Text>
           </Center>
         </div>

@@ -10,17 +10,10 @@ export default function Featured() {
       <SectionTitle title="my featured works" />
       <Group grow={!isMobile} position="center" my={16}>
         <DataCard
-          src="/assets/img/works/dh.png"
-          alt="Card Image"
-          title="Degitic House"
-          href="https://degitic-house.netlify.app"
-          summary="A start-up software house with my colleagues."
-        />
-        <DataCard
           src="/assets/img/works/kti.png"
           alt="Card Image"
           title="Kratom Thai Industry"
-          href="https://kratom-thai.netlify.app"
+          href="https://htooaungshine.netlify.app/"
           summary="A micro-site with landing page for Kratom Company."
         />
       </Group>

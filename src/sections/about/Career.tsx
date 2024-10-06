@@ -10,10 +10,10 @@ type Career = {
 
 const careers: Career[] = [
   {
-    title: "Junior System Analyst @ BLife, Myanmar",
+    title: "DevOps Engineer @ AYA Bank, Myanmar",
     description:
-      "Build a digital wallet chatbot on Viber Platform using Node.js. Implement new features and maintain the system.",
-    duration: ["Mar, 2019", "Sept, 2020"],
+      "Manage and maintain cloud infrastructure for one of the largest mobile-wallet app in Myanmar, AYA-PAY wallet. Developed a Continuous Integration / Continuous Deployment (CI/CD) pipeline that improved system reliability and uptime.",
+    duration: ["May, 2022", "Present"],
   },
   {
     title: "Developer @ Aya Innovation Labs, Myanmar",
