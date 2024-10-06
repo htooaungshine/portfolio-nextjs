@@ -2,8 +2,8 @@ import {
   IconBrandAws,
   IconLambda,
   IconBrandGit,
-  IconBrandNodejs,
-  IconBrandReact,
+  IconTransform,
+  IconTerminal2,
   IconBrandDocker,
   IconCloud,
   IconDatabase,
@@ -14,13 +14,13 @@ import SectionTitle from "../../components/SectionTitle";
 
 const skills: SkillCardProps[] = [
   {
-    icon: <IconBrandNodejs size={64} />,
-    name: "Node JS",
+    icon: <IconTransform size={64} />,
+    name: "CI/CD",
     rating: 90,
   },
   {
-    icon: <IconBrandReact size={64} />,
-    name: "React JS",
+    icon: <IconTerminal2 size={64} />,
+    name: "Linux",
     rating: 90,
   },
   {
@@ -46,12 +46,12 @@ const skills: SkillCardProps[] = [
   {
     icon: <IconCloud size={64} />,
     name: "DevOps",
-    rating: 70,
+    rating: 90,
   },
   {
     icon: <IconBrandAws size={64} />,
     name: "AWS",
-    rating: 100,
+    rating: 90,
   },
 ];
 
