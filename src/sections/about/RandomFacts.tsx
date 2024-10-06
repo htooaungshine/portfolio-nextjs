@@ -4,7 +4,6 @@ import {
   IconBallFootball,
   IconChefHat,
   IconLanguage,
-  IconLineHeight,
 } from "@tabler/icons-react";
 
 type Fact = {
@@ -15,11 +14,7 @@ type Fact = {
 const facts: Fact[] = [
   {
     icon: <IconBallFootball size="1rem" />,
-    text: "I love football and my favourite team is Liverpool",
-  },
-  {
-    icon: <IconLineHeight size="1rem" />,
-    text: "I'm exactly 6ft tall",
+    text: "I love football and my favourite team is Arsenal",
   },
   {
     icon: <IconChefHat size="1rem" />,
@@ -27,7 +22,7 @@ const facts: Fact[] = [
   },
   {
     icon: <IconLanguage size="1rem" />,
-    text: "I speak Fluent English and Burmese, Conversational Chinese and some Japanese",
+    text: "I speak Fluent English and Burmese.",
   },
 ];
 

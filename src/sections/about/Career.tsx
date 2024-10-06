@@ -16,15 +16,15 @@ const careers: Career[] = [
     duration: ["May, 2022", "Present"],
   },
   {
-    title: "Developer @ Aya Innovation Labs, Myanmar",
+    title: "Senior System Engineer @ AYA Bank, Myanmar",
     description:
-      "Build standalone webapps to be integrated into a digital wallet app. Onboard new payment partners and maintain partner portal. Dockerize apps and implement new features",
-    duration: ["Sept, 2019", "Dec, 2022"],
+      "Managed and supported different Operation Support Systems (OSS) in a large and up-growing bank in Myanmar.Performed a performance bottleneck analysis and achieved application performance and average latency of critical systems up to 20% faster and with 99% availability time",
+    duration: ["Nov, 2020", "April, 2022"],
   },
   {
-    title: "Software Engineer @ X Inc, Japan",
+    title: "System Administrator @ Shwe Bank, Myanmar",
     description:
-      "Help build and implement attractive features to create a virtual shopping experience using React Three Fiber for various types of shops. Implement a UI to allow real-time editing in the 3D world for efficient shop management and world building",
+      "Regularly check system logs, CPU usage, memory usage, and network performance to ensure optimal functioning. Customize internal systems to meet organizational needs and improve efficiency",
     duration: ["Jan, 2023", "Present"],
   },
 ];

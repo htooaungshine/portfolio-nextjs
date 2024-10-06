@@ -12,10 +12,9 @@ import {
 import Navbar from "../Nav";
 import { useMediaQuery } from "@mantine/hooks";
 import {
-  IconBrandFacebook,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandStackoverflow,
+  IconMail
 } from "@tabler/icons-react";
 
 export default function Hero() {
@@ -42,19 +41,8 @@ export default function Hero() {
             Reach out to me at my socials below
           </Text>
           <Group py={16}>
-            {/* <Anchor
-              target="_blank"
-              href="https://www.facebook.com/profile.php?id=100015288370073"
-            >
-              <ThemeIcon size={64} radius="xl">
-                <IconBrandFacebook />
-              </ThemeIcon>
-            </Anchor> */}
-
             <Anchor
-              target="_blank"
-              href="https://www.linkedin.com/in/htooaungshine/"
-            >
+              target="_blank" href="https://www.linkedin.com/in/htooaungshine/">
               <ThemeIcon size={64} radius="xl">
                 <IconBrandLinkedin />
               </ThemeIcon>
@@ -66,14 +54,11 @@ export default function Hero() {
               </ThemeIcon>
             </Anchor>
 
-            {/* <Anchor
-              target="_blank"
-              href="https://stackoverflow.com/users/21072674/aaron-dev"
-            >
+            <Anchor target="_blank" href="mailto:htooaungshine19@gmail.com">
               <ThemeIcon size={64} radius="xl">
-                <IconBrandStackoverflow />
+                <IconMail />
               </ThemeIcon>
-            </Anchor> */}
+            </Anchor>
           </Group>
         </Box>
       </Container>

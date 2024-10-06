@@ -4,7 +4,7 @@ import {
   IconMoonStars,
   IconBrandGithub,
   IconMail,
-  IconBrandStackoverflow,
+  IconBrandLinkedin,
 } from "@tabler/icons-react";
 import { AppStore } from "../lib/store";
 
@@ -72,21 +72,21 @@ export default function Navbar({ footer }: NavbarProps) {
         </Anchor>
         <Anchor
           color={!footer ? "white" : undefined}
-          href="https://github.com/Aaronkst"
+          href="https://github.com/htooaungshine"
           target="_blank"
         >
           <IconBrandGithub className="inline-icon" />
         </Anchor>
         <Anchor
           color={!footer ? "white" : undefined}
-          href="https://stackoverflow.com/users/21072674/aaron-dev"
+          href="https://www.linkedin.com/in/htooaungshine/"
           target="_blank"
         >
-          <IconBrandStackoverflow className="inline-icon" />
+          <IconBrandLinkedin className="inline-icon" />
         </Anchor>
         <Anchor
           color={!footer ? "white" : undefined}
-          href="mailto:dev.kst.aaron@gmail.com"
+          href="mailto:htooaungshine19@gmail.com"
           target="_blank"
         >
           <IconMail className="inline-icon" />
