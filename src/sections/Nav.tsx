@@ -67,6 +67,9 @@ export default function Navbar({ footer }: NavbarProps) {
         <Anchor size={16} color={!footer ? "white" : undefined} href="/about">
           About
         </Anchor>
+        <Anchor size={16} color={!footer ? "white" : undefined} href="/projects">
+          Projects
+        </Anchor>
         <Anchor size={16} color={!footer ? "white" : undefined} href="/contact">
           Contact
         </Anchor>
@@ -91,7 +94,6 @@ export default function Navbar({ footer }: NavbarProps) {
         >
           <IconMail className="inline-icon" />
         </Anchor>
-        {/* {!footer && <ThemeSwitcher />} */}
       </Group>
     </>
   );
